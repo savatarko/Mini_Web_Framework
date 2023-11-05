@@ -74,7 +74,6 @@ public class DIEngine {
     }
 
     private static Object initializeSubClass(Class clazz) throws InvocationTargetException, InstantiationException, IllegalAccessException {
-        //Class clazz = field.getType();
         Map<Class, Object> objectMap = new HashMap<>();
         if (singletonClassesMap.containsKey(clazz)) {
             return singletonClassesMap.get(clazz);
@@ -178,8 +177,8 @@ public class DIEngine {
                 return o;
             }
         }
-        //throw new RuntimeException("Something autowired has to be bean service or component!");
-        return null;
+        throw new RuntimeException("Something autowired has to be bean service or component!");
+        //return null;
     }
 
     public static Map<HttpRequest, Method> getHttpMap() {

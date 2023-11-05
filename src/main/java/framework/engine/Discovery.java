@@ -14,22 +14,6 @@ import java.util.stream.Collectors;
 
 public class Discovery {
     private static List<Class> output = new ArrayList<>();
-
-    public static void main(String[] args) {
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        String[] classPathEntries = System.getProperty("java.class.path").split(File.pathSeparator);
-        for(String x:classPathEntries){
-            System.out.println("test");
-            System.out.println(x);
-        }
-
-        for (String classpathEntry : System.getProperty("java.class.path").split(System.getProperty("path.separator"))) {
-                File file = new File(classpathEntry);
-                fileRecursion(file);
-            }
-    }
-
-
     private static String basePath = "";
 
     public static List<Class> getAllClasses(){
